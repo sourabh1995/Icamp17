@@ -1,0 +1,7 @@
+
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^sb\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.sb\.com$
+RewriteRule ^/?$ "http\:\/\/www\.simplybhand\.com" [R=301,L]
+

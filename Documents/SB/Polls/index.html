@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=500" />
+	<meta name="keywords" content="ScrollMagic, example, scrolling, attaching, scrollbar, anchor, link, in-page, navigation, hash" />
+	<meta name="author"	content="Jan Paepke (www.janpaepke.de)" />
+	<title>Simply Bhand | Polls</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic|Josefin+Slab:400,700italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/normalize.css" type="text/css">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="stylesheet" href="css/examples.css" type="text/css">
+	<link rel="stylesheet" type="text/css" href="css/navbar.css">
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+	<script type="text/javascript" src="js/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="js/lib/highlight.pack.js"></script>
+	<script type="text/javascript" src="js/lib/modernizr.custom.min.js"></script>
+	<script type="text/javascript" src="js/examples.js"></script>
+	
+	<script type="text/javascript" src="js/lib/greensock/TweenMax.min.js"></script>
+	<script type="text/javascript" src="scrollmagic/uncompressed/ScrollMagic.js"></script>
+	<script type="text/javascript" src="scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+	<script type="text/javascript" src="scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+
+
+    <header>
+<nav id='cssmenu'>
+<div class="logo"><a href="index.html">Simply Bhand </a></div>
+<div id="head-mobile"></div>
+<div class="button"></div>
+<ul>
+<li class='active'><a href='#'>HOME</a></li>
+<li><a href='#'>ABOUT</a></li>
+<li><a href='#'>POLLS</a>
+</li>
+<li><a href='#'>SURVEY</a></li>
+<li><a href='#'>DISCUSSION</a></li>
+<li><a href='#'>GALLERY</a></li>
+<li><a href='#'>CONTACT</a></li>
+</ul>
+</nav>
+</header>
+    
+
+	<div id="content-wrapper">
+		<div id="example-wrapper">
+			<div class="scrollContent">
+				<section id="titlechart">
+					<div id="description">
+						
+						
+						
+					</div>
+				</section>
+				<section class="demo" id="section-wipes">
+					<style type="text/css">
+						#pinContainer {
+							width: 100%;
+							height: 100%;
+							overflow: hidden;
+						}
+						.panel {
+							height: 100%;
+							width: 100%;
+							position: absolute;
+						}
+					</style>
+					<div id="pinContainer">
+						<section class="panel blue">
+							<b>ONE</b>
+							<b><input type="text" name="name"></b>
+						</section>
+						<section class="panel turqoise">
+							<b>TWO</b>
+						</section>
+						<section class="panel green">
+							<b>THREE</b>
+						</section>
+						<section class="panel bordeaux">
+							<b>FOUR</b>
+						</section>
+						<section class="panel purple">
+							<b>FIVE</b>
+						</section>
+					</div>
+					<script>
+						$(function () { // wait for document ready
+							// init
+							var controller = new ScrollMagic.Controller();
+
+							// define movement of panels
+							var wipeAnimation = new TimelineMax()
+								.fromTo("section.panel.turqoise", 1, {x: "-100%"}, {x: "0%", ease: Linear.easeNone})  // in from left
+								.fromTo("section.panel.green",    1, {x:  "100%"}, {x: "0%", ease: Linear.easeNone})  // in from right
+								.fromTo("section.panel.bordeaux", 1, {y: "-100%"}, {y: "0%", ease: Linear.easeNone})
+								.fromTo("section.panel.purple",   1, {y:  "100%"}, {y: "0%", ease: Linear.easeNone}); // in from top
+
+							// create scene to pin and link animation
+							new ScrollMagic.Scene({
+									triggerElement: "#pinContainer",
+									triggerHook: "onLeave",
+									duration: "300%"
+								})
+								.setPin("#pinContainer")
+								.setTween(wipeAnimation)
+								.addIndicators() // add indicators (requires plugin)
+								.addTo(controller);
+						});
+					</script>
+				</section>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/tracking.js"></script>
+	<!-- Navbar JS -->
+	<script type="text/javascript">
+		(function($) {
+$.fn.menumaker = function(options) {  
+ var cssmenu = $(this), settings = $.extend({
+   format: "dropdown",
+   sticky: false
+ }, options);
+ return this.each(function() {
+   $(this).find(".button").on('click', function(){
+     $(this).toggleClass('menu-opened');
+     var mainmenu = $(this).next('ul');
+     if (mainmenu.hasClass('open')) { 
+       mainmenu.slideToggle().removeClass('open');
+     }
+     else {
+       mainmenu.slideToggle().addClass('open');
+       if (settings.format === "dropdown") {
+         mainmenu.find('ul').show();
+       }
+     }
+   });
+   cssmenu.find('li ul').parent().addClass('has-sub');
+multiTg = function() {
+     cssmenu.find(".has-sub").prepend('<span class="submenu-button"></span>');
+     cssmenu.find('.submenu-button').on('click', function() {
+       $(this).toggleClass('submenu-opened');
+       if ($(this).siblings('ul').hasClass('open')) {
+         $(this).siblings('ul').removeClass('open').slideToggle();
+       }
+       else {
+         $(this).siblings('ul').addClass('open').slideToggle();
+       }
+     });
+   };
+   if (settings.format === 'multitoggle') multiTg();
+   else cssmenu.addClass('dropdown');
+   if (settings.sticky === true) cssmenu.css('position', 'fixed');
+resizeFix = function() {
+  var mediasize = 700;
+     if ($( window ).width() > mediasize) {
+       cssmenu.find('ul').show();
+     }
+     if ($(window).width() <= mediasize) {
+       cssmenu.find('ul').hide().removeClass('open');
+     }
+   };
+   resizeFix();
+   return $(window).on('resize', resizeFix);
+ });
+  };
+})(jQuery);
+
+(function($){
+$(document).ready(function(){
+$("#cssmenu").menumaker({
+   format: "multitoggle"
+});
+});
+})(jQuery);
+
+	</script>
+</body>
+</html>

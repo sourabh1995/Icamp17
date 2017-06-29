@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title> Login </title>
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+   <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+        <style>
+
+         .modal-footer{
+    text-align: left;
+}
+
+ .form-inline .form-group {
+    margin-bottom: 11px;
+}
+
+.form-inline .control-label {
+    width: 50px;
+    text-align:right;
+    margin-right: 5px;
+}
+
+      @import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+
+body{
+    margin: 0;
+    padding: 0;
+    background: #fff;
+
+    color: #fff;
+    font-family: Arial;
+    font-size: 12px;
+}
+
+.body{
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -40px;
+    bottom: -40px;
+    width: auto;
+    height: auto;
+    background-image: url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-008.jpg);
+    background-size: cover;
+    -webkit-filter: blur(5px);
+    z-index: 0;
+}
+
+.grad{
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -40px;
+    bottom: -40px;
+    width: auto;
+    height: auto;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+    z-index: 1;
+    opacity: 0.7;
+}
+
+.header{
+    position: absolute;
+    top: calc(50% - 35px);
+    left: calc(50% - 255px);
+    z-index: 2;
+}
+
+.header div{
+    float: left;
+    color: #ffffff;
+    font-family: 'Exo', sans-serif;
+    font-size: 35px;
+    font-weight: 200;
+}
+
+.header div span{
+    color: #FF4500 !important;
+}
+
+.login{
+    position: absolute;
+    top: calc(50% - 75px);
+    left: calc(50% - 50px);
+    height: 150px;
+    width: 350px;
+    padding: 10px;
+    z-index: 2;
+}
+
+.login input[type=text]{
+    width: 250px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 2px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px;
+}
+
+.login input[type=password]{
+    width: 250px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 2px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px;
+    margin-top: 10px;
+}
+
+.login input[type=button]{
+    width: 260px;
+    height: 35px;
+    background: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;
+    border-radius: 2px;
+    color: #a18d6c;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 6px;
+    margin-top: 10px;
+}
+
+.login input[type=button]:hover{
+    opacity: 0.8;
+}
+
+.login input[type=button]:active{
+    opacity: 0.6;
+}
+
+.login input[type=text]:focus{
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=password]:focus{
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=button]:focus{
+    outline: none;
+}
+
+
+::-webkit-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+
+::-moz-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+
+
+
+    </style>
+
+
+
+
+
+  </head>
+
+  <body>
+
+    <div class="body"></div>
+        <div class="grad"></div>
+        <div class="header">
+            <div>Simply<span>Bhand</span></div>
+        </div>
+        <br>
+        <div class="login">
+                <input type="text" placeholder="username" name="user"><br>
+                <input type="password" placeholder="password" name="password"><br>
+                <input type="button" value="Login" >
+
+                <h2>
+            Never been High?</h2>
+    <a data-toggle="modal" data-target="#becomeamember">
+    <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary">Register</button>
+    </a>&nbsp;&nbsp;&nbsp;
+</div>
+
+
+        <form action="#" method="post" id="newmember" >
+        <div class="modal fade" id="becomeamember" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+
+              </div>
+              <div class="modal-body form-inline">
+                <div class="form-group has-feedback">
+                    <label class="control-label" for="firstnameinput"> firstname</label>
+                    <input type="text" class="form-control" id="firstnameinput" aria-describedby="firstnameinput" required="" placeholder="First name">
+                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                </div>
+
+                <div class="form-group has-feedback">
+                     <label class="control-label" for="lastnameinput"> last name</label>
+                    <input type="text" class="form-control" id="lastnameinput" aria-describedby="lastnameinput" required="" placeholder="Last name" >
+                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                </div>
+
+                <div class="form-group has-feedback">
+                    <label class="control-label" for="passwordlabel">email-id</label>
+                    <input type="email" class="form-control" id="emailinput" aria-describedby="emailinput" required="" placeholder="Email-id">
+                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                </div>
+
+                <div class=" form-group has-feedback" >
+                    <label class="control-label" for="passwordlabel"> Password</label>
+                    <input type="password" class="form-control" id="passwordinput" aria-describedby="passwordinput" required="" placeholder="Password">
+                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                </div>
+
+                <div class="form-group has-feedback">
+                    <label class="control-label" for="re-enterpasswordlabel">Re-enter assword</label>
+                    <input type="password" class="form-control" id="re-enterpasswordinput" aria-describedby="re-enterpasswordinput" required="" placeholder="Re-enter password">
+                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                </div>
+
+
+
+                 <div class="form-group">
+
+                       <label class="control-label" for="options"> options</label>
+                    <select class="form-control">
+
+                        <option>- How did you hear about us? -</option>
+                        <option>Search engine</option>
+                        <option>Web Advertisement</option>
+
+                        <option>Friend/Colleague</option>
+                        <option>Email newsletter</option>
+                        <option>Fax</option>
+
+                        <option>Social Media</option>
+                        <option>Other</option>
+                    </select>
+                </div><br/>
+
+                 <div class="form-group">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Sign up</button>
+                 </div>
+
+              </div><!-- end modal-Body -->
+
+            </div>
+          </div>
+        </div><!-- end become a member modal -->
+        </form> <!-- end Form -->
+
+    </div>
+</div>
+
+
+
+          </div>
+
+</div>
+</body>
+</html>
